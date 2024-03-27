@@ -136,7 +136,11 @@ int main() {
         cout << "7. Exit Program" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
-
+ if (cin.fail()) {
+            cout << "Invalid input. Please enter an integer." << endl;
+            cin.clear(); // Clear the failbit
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard the input buffer
+        } else {
         switch (choice) {
             case 1: {
                 // Open a new account
